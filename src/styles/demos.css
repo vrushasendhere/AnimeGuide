@@ -1,0 +1,409 @@
+/* ============================================================
+   Motion used by specific demos. Kept out of anim.css so the
+   shared primitives there stay small and reusable.
+   ============================================================ */
+
+/* --- Ghosting drill: rehearse the motion, then commit. --- */
+
+@keyframes ghostpass {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(150px);
+  }
+  35% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(150px);
+  }
+  62% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  78% {
+    transform: translateX(150px);
+    opacity: 1;
+  }
+  90%,
+  100% {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+}
+
+.ghostpass {
+  animation: ghostpass 3.2s ease-in-out infinite;
+}
+
+@keyframes commitline {
+  0%,
+  62% {
+    stroke-dashoffset: 100;
+  }
+  78%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.commitline {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: commitline 3.2s ease-in-out infinite;
+}
+
+/* --- Ellipse drill: orbit above the paper, then land. --- */
+
+@keyframes orbit {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  8% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+    transform: rotate(1080deg);
+  }
+  85%,
+  100% {
+    opacity: 0;
+    transform: rotate(1080deg);
+  }
+}
+
+.orbit {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: orbit 3.4s cubic-bezier(0.3, 0, 0.5, 1) infinite;
+}
+
+@keyframes landellipse {
+  0%,
+  70% {
+    stroke-dashoffset: 100;
+    opacity: 0.25;
+  }
+  88%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.landellipse {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: landellipse 3.4s ease-out infinite;
+}
+
+/* --- Slow, tense line vs fast, confident line. --- */
+
+@keyframes slowdraw {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  75%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.slowdraw {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: slowdraw 3s linear infinite;
+}
+
+@keyframes fastdraw {
+  0%,
+  55% {
+    stroke-dashoffset: 100;
+  }
+  68%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.fastdraw {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: fastdraw 3s ease-out infinite;
+}
+
+/* --- Head turn: the Loomis ball rotating in space. --- */
+
+@keyframes headturn {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(26px);
+  }
+}
+
+.headturn {
+  animation: headturn 4s ease-in-out infinite;
+}
+
+@keyframes headsquish {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.55);
+  }
+}
+
+.headsquish {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: headsquish 4s ease-in-out infinite;
+}
+
+/* --- Cel shading build-up: flat, then shadow, then highlight. --- */
+
+@keyframes celstep {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+}
+
+.cel-shadow {
+  animation: celstep 5s ease-in-out infinite;
+  animation-delay: 1.2s;
+  opacity: 0;
+}
+
+.cel-light {
+  animation: celstep 5s ease-in-out infinite;
+  animation-delay: 2.2s;
+  opacity: 0;
+}
+
+.cel-rim {
+  animation: celstep 5s ease-in-out infinite;
+  animation-delay: 3.2s;
+  opacity: 0;
+}
+
+/* --- Inbetweening: keys hold, inbetweens fill in. --- */
+
+@keyframes keypulse {
+  0%,
+  100% {
+    r: 6;
+    opacity: 1;
+  }
+  50% {
+    r: 8;
+    opacity: 1;
+  }
+}
+
+@keyframes fillin {
+  0%,
+  30% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  55%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fillin {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: fillin 3.4s ease-out infinite;
+}
+
+/* --- Playhead scrubbing a strip of frames. --- */
+
+@keyframes playhead {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(var(--ph-travel, 220px));
+  }
+}
+
+.playhead {
+  animation: playhead 2.4s steps(var(--ph-steps, 8), end) infinite;
+}
+
+/* --- Walk cycle leg swing. --- */
+
+@keyframes legA {
+  0%,
+  100% {
+    transform: rotate(24deg);
+  }
+  50% {
+    transform: rotate(-24deg);
+  }
+}
+
+@keyframes legB {
+  0%,
+  100% {
+    transform: rotate(-24deg);
+  }
+  50% {
+    transform: rotate(24deg);
+  }
+}
+
+.legA {
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: legA 1s ease-in-out infinite;
+}
+
+.legB {
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: legB 1s ease-in-out infinite;
+}
+
+@keyframes bodybob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25%,
+  75% {
+    transform: translateY(-4px);
+  }
+}
+
+.bodybob {
+  animation: bodybob 1s ease-in-out infinite;
+}
+
+/* --- Smear: a fast pose that only exists for one frame. --- */
+
+@keyframes smearcycle {
+  0%,
+  38% {
+    opacity: 1;
+  }
+  40%,
+  46% {
+    opacity: 0;
+  }
+  48%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes smearflash {
+  0%,
+  38% {
+    opacity: 0;
+  }
+  40%,
+  46% {
+    opacity: 1;
+  }
+  48%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.smear-solid {
+  animation: smearcycle 1.6s steps(1, end) infinite;
+}
+
+.smear-flash {
+  opacity: 0;
+  animation: smearflash 1.6s steps(1, end) infinite;
+}
+
+/* --- Layer stack lifting apart. --- */
+
+@keyframes layerlift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(var(--lift, -10px));
+  }
+}
+
+.layerlift {
+  animation: layerlift 3s ease-in-out infinite;
+}
+
+/* --- Reuse loop: one drawing, many uses. --- */
+
+@keyframes reuseflow {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+.reuseflow {
+  animation: reuseflow 2.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ghostpass,
+  .commitline,
+  .orbit,
+  .landellipse,
+  .slowdraw,
+  .fastdraw,
+  .headturn,
+  .headsquish,
+  .cel-shadow,
+  .cel-light,
+  .cel-rim,
+  .fillin,
+  .playhead,
+  .legA,
+  .legB,
+  .bodybob,
+  .smear-solid,
+  .smear-flash,
+  .layerlift,
+  .reuseflow {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+  }
+}

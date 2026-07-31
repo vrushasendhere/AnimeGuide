@@ -1,0 +1,227 @@
+/* ============================================================
+   The drawing practice pad.
+   ============================================================ */
+
+.pad {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--ink-600);
+  background: var(--ink-700);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.pad__bar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--ink-600);
+  background: rgba(0, 0, 0, 0.22);
+  flex-wrap: wrap;
+}
+
+.pad__prompt {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pad__prompt strong {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  color: var(--tint);
+}
+
+.pad__prompt span {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  line-height: 1.45;
+}
+
+.pad__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.pad__best {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(255, 200, 87, 0.13);
+  border: 1px solid rgba(255, 200, 87, 0.4);
+  color: var(--gold);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.pad__btn {
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 9px;
+  border: 1px solid var(--ink-500);
+  background: var(--ink-600);
+  color: var(--text-dim);
+  transition: all 0.15s;
+}
+
+.pad__btn:hover {
+  color: var(--text);
+  border-color: var(--ink-400);
+}
+
+.pad__btn--go {
+  border-color: color-mix(in srgb, var(--tint) 55%, transparent);
+  color: var(--tint);
+}
+
+.pad__btn--go:hover {
+  background: color-mix(in srgb, var(--tint) 16%, transparent);
+  color: #fff;
+}
+
+.pad__canvasWrap {
+  position: relative;
+  background: #f7f4ee;
+}
+
+.pad__canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none; /* let the pad own pointer drags on tablets */
+  cursor: crosshair;
+}
+
+.pad__counter {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 6px 13px;
+  border-radius: 99px;
+  background: rgba(11, 13, 20, 0.82);
+  color: var(--text-dim);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  pointer-events: none;
+}
+
+.pad__result {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  padding: 18px;
+  border-top: 1px solid var(--ink-600);
+  align-items: center;
+}
+
+.pad__result--great {
+  background: linear-gradient(90deg, rgba(86, 217, 138, 0.12), transparent);
+}
+.pad__result--ok {
+  background: linear-gradient(90deg, rgba(255, 200, 87, 0.11), transparent);
+}
+.pad__result--poor {
+  background: linear-gradient(90deg, rgba(255, 107, 107, 0.11), transparent);
+}
+
+.pad__score {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  font-family: var(--font-display);
+  padding-right: 20px;
+  border-right: 1px solid var(--ink-600);
+}
+
+.pad__scoreNum {
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.pad__result--great .pad__scoreNum {
+  color: var(--green);
+}
+.pad__result--ok .pad__scoreNum {
+  color: var(--gold);
+}
+.pad__result--poor .pad__scoreNum {
+  color: var(--red);
+}
+
+.pad__scoreOf {
+  font-size: 14px;
+  color: var(--text-faint);
+}
+
+.pad__metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px 18px;
+}
+
+.pad__metricTop {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.pad__metricBar {
+  height: 5px;
+  border-radius: 99px;
+  background: var(--ink-600);
+  overflow: hidden;
+}
+
+.pad__metricFill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pad__verdict {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text);
+  padding-top: 4px;
+}
+
+.pad__freenote,
+.pad__missing {
+  padding: 12px 18px;
+  font-size: 12px;
+  color: var(--text-faint);
+  border-top: 1px solid var(--ink-600);
+}
+
+.practice__goal {
+  margin: 12px 2px 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text-faint);
+  border-left: 2px solid var(--tint);
+  padding-left: 12px;
+}
+
+@media (max-width: 640px) {
+  .pad__result {
+    grid-template-columns: 1fr;
+  }
+  .pad__score {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink-600);
+    padding: 0 0 12px;
+  }
+}
