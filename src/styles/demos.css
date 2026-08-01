@@ -448,7 +448,223 @@
   animation: shotstep 7s steps(1, end) infinite;
 }
 
+/* ============================================================
+   Emotional effects track. These are the anime "punctuation
+   marks" — each one is a timed flash, so the motion IS the point.
+   ============================================================ */
+
+/* White-out: the frame blows out to pure light, then recovers. */
+@keyframes whiteout {
+  0%,
+  22% {
+    opacity: 0;
+  }
+  30%,
+  70% {
+    opacity: 1;
+  }
+  86%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.fx-whiteout {
+  opacity: 0;
+  animation: whiteout 4.4s ease-in-out infinite;
+}
+
+/* God rays drifting and breathing. */
+@keyframes rays {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: translateX(-6px);
+  }
+  50% {
+    opacity: 0.62;
+    transform: translateX(6px);
+  }
+}
+
+.fx-rays {
+  animation: rays 5s ease-in-out infinite;
+}
+
+/* Speed lines streaking past. */
+@keyframes streak {
+  0% {
+    transform: translateX(70px);
+    opacity: 0;
+  }
+  20%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-90px);
+    opacity: 0;
+  }
+}
+
+.fx-streak {
+  animation: streak 0.85s linear infinite;
+}
+
+/* Focus lines snapping inward on a beat. */
+@keyframes focuspulse {
+  0%,
+  55% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+  62%,
+  88% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.fx-focus {
+  transform-box: view-box;
+  transform-origin: 160px 84px;
+  opacity: 0;
+  animation: focuspulse 2.2s steps(1, end) infinite;
+}
+
+/* Impact frame: two frames of inverted white, then gone. */
+@keyframes impact {
+  0%,
+  60% {
+    opacity: 0;
+  }
+  62%,
+  68% {
+    opacity: 1;
+  }
+  70%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.fx-impact {
+  opacity: 0;
+  animation: impact 2s steps(1, end) infinite;
+}
+
+/* Shoujo sparkle twinkle. */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(45deg);
+  }
+}
+
+.fx-twinkle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: twinkle 2.4s ease-in-out infinite;
+}
+
+/* Dread: vertical shadow bars slide down over the frame. */
+@keyframes dread {
+  0%,
+  15% {
+    transform: translateY(-170px);
+    opacity: 0;
+  }
+  38%,
+  82% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+.fx-dread {
+  animation: dread 4s ease-in-out infinite;
+}
+
+/* Emotional colour field washing over the shot. */
+@keyframes colourwash {
+  0%,
+  18% {
+    opacity: 0;
+  }
+  32%,
+  74% {
+    opacity: 0.82;
+  }
+  90%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.fx-wash {
+  opacity: 0;
+  animation: colourwash 4.6s ease-in-out infinite;
+}
+
+/* Colour-track: a swatch cycling through a hue ramp. */
+@keyframes hueshiftdemo {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(60deg);
+  }
+}
+
+.cl-hueshift {
+  animation: hueshiftdemo 4s ease-in-out infinite;
+}
+
+/* Colour-track: desaturating to prove the value structure holds. */
+@keyframes greyflip {
+  0%,
+  42% {
+    opacity: 0;
+  }
+  50%,
+  92% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.cl-greyflip {
+  opacity: 0;
+  animation: greyflip 4.4s steps(1, end) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .fx-whiteout,
+  .fx-rays,
+  .fx-streak,
+  .fx-focus,
+  .fx-impact,
+  .fx-twinkle,
+  .fx-dread,
+  .fx-wash,
+  .cl-hueshift,
+  .cl-greyflip,
   .notanflip,
   .gridpulse,
   .shotstep,

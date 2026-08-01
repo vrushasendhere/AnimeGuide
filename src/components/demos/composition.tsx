@@ -1,66 +1,10 @@
-import type { ReactNode } from 'react';
 import { C, Tag } from './kit';
+import { FW, FH, Frame, Fig, Hills, Ground } from './frame';
 
 /* ------------------------------------------------------------------
    Composition track. Every demo is a 16:9 frame, because composition
    only means anything relative to the edges you are composing inside.
    ------------------------------------------------------------------ */
-
-const VB = '0 0 320 190';
-const FW = 320;
-const FH = 168;
-
-/** Shared 16:9 stage with a visible border — the frame IS the subject here. */
-function Frame({ children, caption, tone = 'dusk' }: { children: ReactNode; caption?: string; tone?: 'dusk' | 'flat' }) {
-  return (
-    <svg viewBox={VB} style={{ width: '100%', height: '100%', display: 'block' }}>
-      <defs>
-        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#2c3358" />
-          <stop offset="60%" stopColor="#6b4a6b" />
-          <stop offset="100%" stopColor="#c98065" />
-        </linearGradient>
-        <linearGradient id="flatsky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#39415e" />
-          <stop offset="100%" stopColor="#59617f" />
-        </linearGradient>
-        <clipPath id="frameclip">
-          <rect x="0" y="0" width={FW} height={FH} />
-        </clipPath>
-      </defs>
-      <g clipPath="url(#frameclip)">
-        <rect x="0" y="0" width={FW} height={FH} fill={tone === 'dusk' ? 'url(#sky)' : 'url(#flatsky)'} />
-        {children}
-      </g>
-      <rect x="0.75" y="0.75" width={FW - 1.5} height={FH - 1.5} fill="none" stroke="#8b93ad" strokeWidth="1.5" opacity="0.5" />
-      {caption && (
-        <text x={FW / 2} y={183} fontSize="10" textAnchor="middle" fill="#96a0b8" fontFamily="Poppins, sans-serif" fontWeight="600">
-          {caption}
-        </text>
-      )}
-    </svg>
-  );
-}
-
-/** Standing figure silhouette, the recurring subject. */
-const Fig = ({ x, y, s = 1, fill = '#141824' }: { x: number; y: number; s?: number; fill?: string }) => (
-  <g transform={`translate(${x} ${y}) scale(${s})`} fill={fill}>
-    <circle cx="0" cy="-30" r="6.5" />
-    <path d="M-6 -23 L6 -23 L8 2 L-8 2 Z" />
-    <rect x="-6" y="2" width="4.5" height="20" rx="2" />
-    <rect x="1.5" y="2" width="4.5" height="20" rx="2" />
-  </g>
-);
-
-const Hills = ({ y, fill, opacity = 1 }: { y: number; fill: string; opacity?: number }) => (
-  <path
-    d={`M-10 ${y} C40 ${y - 22} 80 ${y - 6} 130 ${y - 16} C180 ${y - 26} 230 ${y - 4} 280 ${y - 14} L330 ${y - 8} L330 ${FH + 10} L-10 ${FH + 10} Z`}
-    fill={fill}
-    opacity={opacity}
-  />
-);
-
-const Ground = () => <rect x="-10" y={132} width="340" height="50" fill="#241f2e" />;
 
 /* --- Rule of thirds --- */
 

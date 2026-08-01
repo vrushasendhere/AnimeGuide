@@ -6,6 +6,9 @@ import * as Pr from './principles';
 import * as An from './animation';
 import * as Wf from './workflow';
 import * as Cp from './composition';
+import * as Fx from './effects';
+import * as Cl from './colour';
+import * as Ps from './perspective';
 
 /**
  * Lookup used by every block that renders a figure. Lesson data refers to
@@ -125,6 +128,45 @@ export const DEMOS: Record<string, ComponentType> = {
   'cp-negative': Cp.CpNegativeSpace,
   'cp-balance': Cp.CpBalance,
   'cp-bigshape': Cp.CpBigShape,
+
+  /* --- Emotional effects --- */
+  'ef-neutral': Fx.FxNeutral,
+  'ef-whiteout': Fx.FxWhiteout,
+  'ef-rays': Fx.FxGodRays,
+  'ef-speedlines': Fx.FxSpeedLines,
+  'ef-focuslines': Fx.FxFocusLines,
+  'ef-impact': Fx.FxImpactFrame,
+  'ef-sparkle': Fx.FxSparkle,
+  'ef-dread': Fx.FxDread,
+  'ef-rage': Fx.FxRageField,
+  'ef-despair': Fx.FxDespairField,
+  'ef-screentone': Fx.FxScreentone,
+  'ef-overloaded': Fx.FxOverloaded,
+  'ef-restrained': Fx.FxRestrained,
+
+  /* --- Colour and light --- */
+  'cl-dials': Cl.ClDials,
+  'cl-valuefirst': Cl.ClValueFirst,
+  'cl-complementary': Cl.ClComplementary,
+  'cl-analogous': Cl.ClAnalogous,
+  'cl-triadic': Cl.ClTriadic,
+  'cl-palette': Cl.ClPaletteRoles,
+  'cl-lightlocal': Cl.ClLightVsLocal,
+  'cl-formlight': Cl.ClFormLight,
+  'cl-timeofday': Cl.ClTimeOfDay,
+  'cl-satfocal': Cl.ClSaturationFocal,
+  'cl-shadowhue': Cl.ClShadowHue,
+
+  /* --- Perspective and backgrounds --- */
+  'ps-eyelevel': Ps.PsEyeLevel,
+  'ps-abovebelow': Ps.PsAboveBelow,
+  'ps-cubes': Ps.PsCubes,
+  'ps-ellipse': Ps.PsEllipsePersp,
+  'ps-interior': Ps.PsInterior,
+  'ps-figurescale': Ps.PsFigureScale,
+  'ps-bglayers': Ps.PsBgLayers,
+  'ps-clouds': Ps.PsClouds,
+  'ps-bgdetail': Ps.PsBgDetail,
 
   /* --- Track 6: smart work --- */
   'wf-layers': Wf.WfLayers,

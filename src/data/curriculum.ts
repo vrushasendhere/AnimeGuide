@@ -1,23 +1,32 @@
 import type { Lesson, Track } from './types';
 import { fundamentals } from './lessons/fundamentals';
 import { construction } from './lessons/construction';
-import { style } from './lessons/style';
+import { perspective } from './lessons/perspective';
 import { composition } from './lessons/composition';
+import { colour } from './lessons/colour';
+import { style } from './lessons/style';
+import { effects } from './lessons/effects';
 import { principles } from './lessons/principles';
 import { advanced } from './lessons/advanced';
 import { clipstudio } from './lessons/clipstudio';
 import { workflow } from './lessons/workflow';
 
 /**
- * Ordered as a path: hand control, then what to draw, then how to arrange and
- * finish it, then motion. The software track sits late because it is far more
- * useful once you know what you are asking the software to do.
+ * Ordered as a path: hand control, then what to draw, then the space it sits
+ * in, then how to arrange, colour and finish it, then motion.
+ *
+ * Colour & Light comes before Style & Cel Shading because cel shading is an
+ * application of colour theory, not a substitute for it. The software track
+ * sits late — it is far more useful once you know what to ask the tool for.
  */
 export const TRACKS: Track[] = [
   fundamentals,
   construction,
-  style,
+  perspective,
   composition,
+  colour,
+  style,
+  effects,
   principles,
   advanced,
   clipstudio,

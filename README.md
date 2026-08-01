@@ -19,21 +19,27 @@ npm run dev
 Opens at http://localhost:5180. Progress and drill scores are saved to
 `localStorage`, so closing the tab loses nothing.
 
-## The eight tracks
+## The eleven tracks
 
-69 lessons, ordered as a path: hand control, then what to draw, then how to
-arrange and finish it, then motion.
+91 lessons, ordered as a path: hand control, then what to draw, then the space
+it sits in, then how to arrange, colour and finish it, then motion.
 
 | Track | What it covers |
 | --- | --- |
 | **Line Control** | Posture and pivots, straight lines, ghosting, curves, ellipses, boxes, perspective, hatching, the daily warm-up |
 | **Construction** | Loomis head, the anime proportion edit, eyes, hair, expressions, figure, hands |
-| **Style & Cel Shading** | The four cel passes, shadow colour and hue shift, key lighting, line weight, style dials |
+| **Perspective & Backgrounds** | Eye level, cubes and convergence, ellipses in perspective, interiors and figure scale, layered background plates, skies and clouds |
 | **Composition** | Frame and thirds, leading the eye, notan and value structure, focal point, depth, shots and camera angles, balance and negative space |
+| **Colour & Light** | The three dials, value first, the five zones of light, harmony, building a palette, light vs local colour, colour as storytelling |
+| **Style & Cel Shading** | The four cel passes, shadow colour and hue shift, key lighting, line weight, style dials |
+| **Emotion & Effects** | White-outs, light rays, speed and focus lines, impact frames, sparkles, dread, colour fields — and when not to use any of them |
 | **12 Animation Principles** | All twelve, each with a with/without pair you watch side by side |
 | **Advanced Animation** | Keys, breakdowns, inbetweens, timing charts, spacing, onion skin, ones/twos/threes, walk cycles, smears, sakuga |
 | **Clip Studio Paint** | Setup, interface, brushes, vector line art, layers and blend modes, flatting, cel shading, the brush engine, custom brushes, rulers and 3D, animation, auto actions |
 | **Smart Work** | Layers and versioning, limited animation, thumbnails, catching your own errors, detail budget, shortcuts, reference, a practice plan |
+
+Colour & Light comes before Style & Cel Shading deliberately: cel shading is an
+application of colour theory, not a substitute for it.
 
 The Clip Studio track carries no drawn figures on purpose — a hand-authored SVG
 of someone else's UI would be a guess. Exact values live in reference tables and
@@ -53,6 +59,26 @@ specific thing went wrong:
 - **Freehand circle** — radius evenness
 - **Even hatching** — angle spread and gap consistency
 - **Free pad** — unscored
+
+## The practice journal
+
+Every drill attempt is kept, not just your best — a single high-water mark
+throws away the curve, and the curve is the thing that tells you whether you are
+actually improving. `#/journal` shows:
+
+- **Streak, practice days, total attempts, lessons completed**
+- **A score-over-time chart per drill**, with your personal best as a reference line
+- **Trend**: mean of your last five attempts minus your first five. Hidden until
+  you have ten attempts, because anything less is noise.
+- **An 18-week practice heatmap**
+
+Nothing is entered by hand. A journal you have to remember to fill in is a
+journal you stop using.
+
+Storage is `animeguide.progress.v2` in localStorage, and it migrates `v1`
+forward rather than resetting anyone's progress.
+
+## Grading
 
 Grading lives in `src/components/practice/geometry.ts` (stroke maths) and
 `exercises.ts` (each drill's targets, scoring weights and coaching lines).
@@ -80,5 +106,5 @@ two-column lookup table for exact settings and shortcuts.
   nothing has licensing questions, and it all works offline.
 - Videos need internet. They load on click (a poster stands in until then) so a
   lesson with several videos doesn't boot several players at once.
-- All 65 embedded video IDs were checked against live YouTube thumbnails.
+- All 91 embedded video IDs were checked against live YouTube thumbnails.
 - Respects `prefers-reduced-motion`.

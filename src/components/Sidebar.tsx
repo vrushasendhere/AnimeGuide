@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TOTAL_LESSONS, TRACKS } from '../data/curriculum';
-import { resetProgress, useProgress } from '../hooks/useProgress';
+import { currentStreak, resetProgress, useProgress } from '../hooks/useProgress';
 
 export default function Sidebar({
   currentId,
@@ -11,6 +11,7 @@ export default function Sidebar({
 }) {
   const progress = useProgress();
   const doneCount = Object.keys(progress.done).length;
+  const streak = currentStreak(progress.sessions);
 
   // The track holding the current lesson starts open; the rest collapse.
   const [open, setOpen] = useState<Record<string, boolean>>(() => {
@@ -29,6 +30,15 @@ export default function Sidebar({
       </div>
 
       <nav className="rail__scroll">
+        <button
+          className={`journallink ${currentId === 'journal' ? 'active' : ''}`}
+          onClick={() => onSelect('journal')}
+        >
+          <span className="journallink__glyph">📓</span>
+          <span className="journallink__label">Practice journal</span>
+          {streak > 0 && <span className="journallink__streak">{streak}🔥</span>}
+        </button>
+
         {TRACKS.map((track) => {
           const isOpen = open[track.id] ?? false;
           const trackDone = track.lessons.filter((l) => progress.done[l.id]).length;
