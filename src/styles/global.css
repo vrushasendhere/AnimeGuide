@@ -506,6 +506,89 @@ button {
   line-height: 1.45;
 }
 
+/* Text-only steps, used by the software track */
+
+.steps--text {
+  grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+}
+
+.stepcard--text {
+  padding: 14px 15px 15px 44px;
+  position: relative;
+}
+
+.stepcard--text .stepcard__n {
+  top: 14px;
+  left: 13px;
+}
+
+.stepcard--text .stepcard__body {
+  padding: 0;
+}
+
+/* Reference table: setting → value, shortcut → action */
+
+.reftable {
+  border: 1px solid var(--ink-600);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--ink-700);
+}
+
+.reftable__row {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.42fr) 1fr;
+  gap: 16px;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--ink-600);
+  font-size: 13px;
+  align-items: baseline;
+}
+
+.reftable__row:last-child {
+  border-bottom: 0;
+}
+
+.reftable__row:nth-child(even) {
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.reftable__row--head {
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: var(--text-faint);
+  font-weight: 700;
+}
+
+.reftable__k {
+  color: var(--tint);
+  font-weight: 650;
+  font-family: var(--font-display);
+  line-height: 1.4;
+}
+
+.reftable__v {
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.reftable__note {
+  display: block;
+  margin-top: 3px;
+  font-size: 11.5px;
+  color: var(--text-faint);
+  font-style: normal;
+}
+
+@media (max-width: 560px) {
+  .reftable__row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
 /* Standalone demo panel */
 
 .panel {

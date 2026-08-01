@@ -5,6 +5,7 @@ import * as St from './style';
 import * as Pr from './principles';
 import * as An from './animation';
 import * as Wf from './workflow';
+import * as Cp from './composition';
 
 /**
  * Lookup used by every block that renders a figure. Lesson data refers to
@@ -106,6 +107,24 @@ export const DEMOS: Record<string, ComponentType> = {
   'an-arctrack': An.AnArcTrack,
   'an-loop': An.AnLoop,
   'an-multiples': An.AnMultiples,
+
+  /* --- Composition --- */
+  'cp-centered': Cp.CpCentered,
+  'cp-thirds': Cp.CpThirds,
+  'cp-leadinglines': Cp.CpLeadingLines,
+  'cp-eyepath': Cp.CpEyePath,
+  'cp-notan': Cp.CpNotan,
+  'cp-threevalues': Cp.CpThreeValues,
+  'cp-focal-flat': Cp.CpFocalFlat,
+  'cp-focal-contrast': Cp.CpFocalContrast,
+  'cp-depth': Cp.CpDepth,
+  'cp-atmospheric': Cp.CpAtmospheric,
+  'cp-shotsizes': Cp.CpShotSizes,
+  'cp-angles': Cp.CpAngles,
+  'cp-dutch': Cp.CpDutch,
+  'cp-negative': Cp.CpNegativeSpace,
+  'cp-balance': Cp.CpBalance,
+  'cp-bigshape': Cp.CpBigShape,
 
   /* --- Track 6: smart work --- */
   'wf-layers': Wf.WfLayers,

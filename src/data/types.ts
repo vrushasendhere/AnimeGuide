@@ -13,7 +13,8 @@ export type Block =
   | PracticeBlock
   | VideoBlock
   | CompareBlock
-  | ChecklistBlock;
+  | ChecklistBlock
+  | ReferenceBlock;
 
 /** Big animated opener that states the idea in one motion. */
 export interface HeroBlock {
@@ -33,8 +34,11 @@ export interface StepsBlock {
 export interface Step {
   /** 2-6 words. This is a label, not a sentence. */
   label: string;
-  /** Key into the demo registry. */
-  demo: string;
+  /**
+   * Key into the demo registry. Omitted for software procedures, where a
+   * drawn figure would misrepresent what the UI actually looks like.
+   */
+  demo?: string;
   /** Optional one-line "why", shown small and muted. */
   note?: string;
 }
@@ -81,6 +85,18 @@ export interface ChecklistBlock {
   kind: 'checklist';
   title: string;
   items: string[];
+}
+
+/**
+ * A lookup table: setting to value, shortcut to action. Software lessons need
+ * exact numbers, and a bulleted list is the wrong shape for those.
+ */
+export interface ReferenceBlock {
+  kind: 'reference';
+  title: string;
+  /** Optional column headings. Defaults to no header row. */
+  columns?: [string, string];
+  rows: Array<{ k: string; v: string; note?: string }>;
 }
 
 export interface Lesson {

@@ -380,7 +380,78 @@
   animation: reuseflow 2.6s linear infinite;
 }
 
+/* --- Notan: flip between the full image and its two-value reduction. --- */
+
+@keyframes notanflip {
+  0%,
+  44% {
+    opacity: 0;
+  }
+  52%,
+  94% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.notanflip {
+  opacity: 0;
+  animation: notanflip 4s steps(1, end) infinite;
+}
+
+/* --- Thirds grid fading in over a composition. --- */
+
+@keyframes gridpulse {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  40%,
+  70% {
+    opacity: 0.75;
+  }
+}
+
+.gridpulse {
+  animation: gridpulse 4s ease-in-out infinite;
+}
+
+/* --- Shot-size ladder stepping from wide to close. --- */
+
+@keyframes shotstep {
+  0%,
+  18% {
+    transform: scale(1);
+  }
+  25%,
+  43% {
+    transform: scale(1.7);
+  }
+  50%,
+  68% {
+    transform: scale(2.9);
+  }
+  75%,
+  93% {
+    transform: scale(4.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.shotstep {
+  transform-box: view-box;
+  transform-origin: 160px 74px;
+  animation: shotstep 7s steps(1, end) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .notanflip,
+  .gridpulse,
+  .shotstep,
   .ghostpass,
   .commitline,
   .orbit,

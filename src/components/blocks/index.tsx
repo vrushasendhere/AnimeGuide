@@ -38,22 +38,65 @@ function Hero({ demo, caption }: { demo: string; caption: string }) {
   );
 }
 
-function Steps({ title, steps }: { title: string; steps: { label: string; demo: string; note?: string }[] }) {
+function Steps({
+  title,
+  steps,
+}: {
+  title: string;
+  steps: { label: string; demo?: string; note?: string }[];
+}) {
+  // Software procedures carry no figures; they get a denser text-only layout.
+  const textOnly = steps.every((s) => !s.demo);
   return (
     <div className="block">
       <h3 className="block__title">{title}</h3>
-      <div className="steps">
+      <div className={textOnly ? 'steps steps--text' : 'steps'}>
         {steps.map((s, i) => (
-          <article className="stepcard" key={i}>
+          <article className={textOnly ? 'stepcard stepcard--text' : 'stepcard'} key={i}>
             <div className="stepcard__n">{i + 1}</div>
-            <div className="stepcard__art">
-              <Replayable name={s.demo} />
-            </div>
+            {s.demo && (
+              <div className="stepcard__art">
+                <Replayable name={s.demo} />
+              </div>
+            )}
             <div className="stepcard__body">
               <div className="stepcard__label">{s.label}</div>
               {s.note && <div className="stepcard__note">{s.note}</div>}
             </div>
           </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Reference({
+  title,
+  columns,
+  rows,
+}: {
+  title: string;
+  columns?: [string, string];
+  rows: Array<{ k: string; v: string; note?: string }>;
+}) {
+  return (
+    <div className="block">
+      <h3 className="block__title">{title}</h3>
+      <div className="reftable">
+        {columns && (
+          <div className="reftable__row reftable__row--head">
+            <span>{columns[0]}</span>
+            <span>{columns[1]}</span>
+          </div>
+        )}
+        {rows.map((r, i) => (
+          <div className="reftable__row" key={i}>
+            <span className="reftable__k">{r.k}</span>
+            <span className="reftable__v">
+              {r.v}
+              {r.note && <em className="reftable__note">{r.note}</em>}
+            </span>
+          </div>
         ))}
       </div>
     </div>
@@ -212,5 +255,7 @@ export function BlockView({ block }: { block: Block }) {
       return <Practice title={block.title} exercise={block.exercise} goal={block.goal} />;
     case 'checklist':
       return <Checklist title={block.title} items={block.items} />;
+    case 'reference':
+      return <Reference title={block.title} columns={block.columns} rows={block.rows} />;
   }
 }
