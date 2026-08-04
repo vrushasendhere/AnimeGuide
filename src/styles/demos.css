@@ -654,7 +654,193 @@
   animation: greyflip 4.4s steps(1, end) infinite;
 }
 
+/* ============================================================
+   Cinematography — camera moves. Each one animates the whole
+   scene group, because that is literally what a camera move is:
+   the world staying put while the frame moves over it.
+   ============================================================ */
+
+@keyframes cam-pan {
+  0%,
+  100% {
+    transform: translateX(38px);
+  }
+  50% {
+    transform: translateX(-38px);
+  }
+}
+
+.cam-pan {
+  animation: cam-pan 6s ease-in-out infinite;
+}
+
+@keyframes cam-tilt {
+  0%,
+  100% {
+    transform: translateY(26px);
+  }
+  50% {
+    transform: translateY(-26px);
+  }
+}
+
+.cam-tilt {
+  animation: cam-tilt 6s ease-in-out infinite;
+}
+
+/* Dolly/track in: the frame closes on the subject. */
+@keyframes cam-dolly {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.75);
+  }
+}
+
+.cam-dolly {
+  transform-box: view-box;
+  transform-origin: 160px 108px;
+  animation: cam-dolly 6s ease-in-out infinite;
+}
+
+/* Parallax layer for the dolly — background shifts less than the subject. */
+@keyframes cam-dolly-bg {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.16);
+  }
+}
+
+.cam-dolly-bg {
+  transform-box: view-box;
+  transform-origin: 160px 108px;
+  animation: cam-dolly-bg 6s ease-in-out infinite;
+}
+
+/* Crane/pedestal: rise and reveal. */
+@keyframes cam-crane {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  60%,
+  100% {
+    transform: translateY(46px) scale(0.72);
+  }
+}
+
+.cam-crane {
+  transform-box: view-box;
+  transform-origin: 160px 84px;
+  animation: cam-crane 5s ease-in-out infinite alternate;
+}
+
+/* Handheld: never still, never a clean arc. */
+@keyframes cam-handheld {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  15% {
+    transform: translate(-3px, 2px) rotate(0.5deg);
+  }
+  32% {
+    transform: translate(2px, -3px) rotate(-0.6deg);
+  }
+  49% {
+    transform: translate(-2px, -1px) rotate(0.3deg);
+  }
+  66% {
+    transform: translate(3px, 2px) rotate(-0.4deg);
+  }
+  83% {
+    transform: translate(-1px, 3px) rotate(0.5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.cam-handheld {
+  transform-box: view-box;
+  transform-origin: 160px 84px;
+  animation: cam-handheld 1.6s linear infinite;
+}
+
+/* Anime TU (track up): a hard, fast push used as a dramatic beat. */
+@keyframes cam-tu {
+  0%,
+  30% {
+    transform: scale(1);
+  }
+  46%,
+  86% {
+    transform: scale(2.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cam-tu {
+  transform-box: view-box;
+  transform-origin: 160px 104px;
+  animation: cam-tu 4s cubic-bezier(0.2, 0.9, 0.3, 1) infinite;
+}
+
+/* Shot-size ladder stepping through the seven sizes. */
+@keyframes shotladder {
+  0%,
+  11% {
+    transform: scale(0.55);
+  }
+  14%,
+  25% {
+    transform: scale(1);
+  }
+  28%,
+  39% {
+    transform: scale(1.5);
+  }
+  42%,
+  53% {
+    transform: scale(2.6);
+  }
+  56%,
+  67% {
+    transform: scale(4);
+  }
+  70%,
+  81% {
+    transform: scale(6.5);
+  }
+  84%,
+  97% {
+    transform: scale(13);
+  }
+  100% {
+    transform: scale(0.55);
+  }
+}
+
+.shotladder {
+  transform-box: view-box;
+  transform-origin: 160px 104px;
+  animation: shotladder 14s steps(1, end) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .cam-pan,
+  .cam-tilt,
+  .cam-dolly,
+  .cam-dolly-bg,
+  .cam-crane,
+  .cam-handheld,
+  .cam-tu,
+  .shotladder,
   .fx-whiteout,
   .fx-rays,
   .fx-streak,

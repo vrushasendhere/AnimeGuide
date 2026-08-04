@@ -19,17 +19,18 @@ npm run dev
 Opens at http://localhost:5180. Progress and drill scores are saved to
 `localStorage`, so closing the tab loses nothing.
 
-## The eleven tracks
+## The twelve tracks
 
-91 lessons, ordered as a path: hand control, then what to draw, then the space
-it sits in, then how to arrange, colour and finish it, then motion.
+99 lessons, ordered as a path: hand control, then what to draw, then the space
+it sits in, then how to frame, arrange, colour and finish it, then motion.
 
 | Track | What it covers |
 | --- | --- |
 | **Line Control** | Posture and pivots, straight lines, ghosting, curves, ellipses, boxes, perspective, hatching, the daily warm-up |
 | **Construction** | Loomis head, the anime proportion edit, eyes, hair, expressions, figure, hands |
 | **Perspective & Backgrounds** | Eye level, cubes and convergence, ellipses in perspective, interiors and figure scale, layered background plates, skies and clouds |
-| **Composition** | Frame and thirds, leading the eye, notan and value structure, focal point, depth, shots and camera angles, balance and negative space |
+| **Composition** | Frame and thirds, leading the eye, notan and value structure, focal point, depth, balance and negative space |
+| **Cinematography** | The seven shot sizes, which shot when, camera height and angle, camera movement, framing rules, the 180 rule and eyelines, how anime shoots, storyboarding |
 | **Colour & Light** | The three dials, value first, the five zones of light, harmony, building a palette, light vs local colour, colour as storytelling |
 | **Style & Cel Shading** | The four cel passes, shadow colour and hue shift, key lighting, line weight, style dials |
 | **Emotion & Effects** | White-outs, light rays, speed and focus lines, impact frames, sparkles, dread, colour fields — and when not to use any of them |
@@ -40,6 +41,10 @@ it sits in, then how to arrange, colour and finish it, then motion.
 
 Colour & Light comes before Style & Cel Shading deliberately: cel shading is an
 application of colour theory, not a substitute for it.
+
+Every shot-size demo in Cinematography is the *same* scene at a different scale,
+so the comparison is purely about camera distance rather than seven separately
+drawn pictures.
 
 The Clip Studio track carries no drawn figures on purpose — a hand-authored SVG
 of someone else's UI would be a guess. Exact values live in reference tables and
@@ -106,5 +111,5 @@ two-column lookup table for exact settings and shortcuts.
   nothing has licensing questions, and it all works offline.
 - Videos need internet. They load on click (a poster stands in until then) so a
   lesson with several videos doesn't boot several players at once.
-- All 91 embedded video IDs were checked against live YouTube thumbnails.
+- All 101 embedded video IDs were checked against live YouTube thumbnails.
 - Respects `prefers-reduced-motion`.

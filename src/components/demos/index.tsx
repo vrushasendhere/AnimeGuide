@@ -9,6 +9,7 @@ import * as Cp from './composition';
 import * as Fx from './effects';
 import * as Cl from './colour';
 import * as Ps from './perspective';
+import * as Cm from './cinematography';
 
 /**
  * Lookup used by every block that renders a figure. Lesson data refers to
@@ -128,6 +129,38 @@ export const DEMOS: Record<string, ComponentType> = {
   'cp-negative': Cp.CpNegativeSpace,
   'cp-balance': Cp.CpBalance,
   'cp-bigshape': Cp.CpBigShape,
+
+  /* --- Cinematography --- */
+  'cm-ladder': Cm.CmLadder,
+  'cm-ews': Cm.CmExtremeWide,
+  'cm-ws': Cm.CmWide,
+  'cm-fs': Cm.CmFull,
+  'cm-ms': Cm.CmMedium,
+  'cm-mcu': Cm.CmMediumClose,
+  'cm-cu': Cm.CmCloseUp,
+  'cm-ecu': Cm.CmExtremeClose,
+  'cm-low': Cm.CmLowAngle,
+  'cm-eye': Cm.CmEyeLevel,
+  'cm-high': Cm.CmHighAngle,
+  'cm-birds': Cm.CmBirdsEye,
+  'cm-dutch': Cm.CmDutch,
+  'cm-pan': Cm.CmPan,
+  'cm-tilt': Cm.CmTilt,
+  'cm-dolly': Cm.CmDolly,
+  'cm-crane': Cm.CmCrane,
+  'cm-handheld': Cm.CmHandheld,
+  'cm-tu': Cm.CmTrackUp,
+  'cm-headroom-bad': Cm.CmHeadroomBad,
+  'cm-headroom-good': Cm.CmHeadroomGood,
+  'cm-leadroom-bad': Cm.CmLeadRoomBad,
+  'cm-leadroom-good': Cm.CmLeadRoomGood,
+  'cm-ots': Cm.CmOverShoulder,
+  'cm-twoshot': Cm.CmTwoShot,
+  'cm-180-good': Cm.Cm180Good,
+  'cm-180-bad': Cm.Cm180Bad,
+  'cm-eyeline': Cm.CmEyeline,
+  'cm-sceneflow': Cm.CmSceneFlow,
+  'cm-pillow': Cm.CmPillowShot,
 
   /* --- Emotional effects --- */
   'ef-neutral': Fx.FxNeutral,

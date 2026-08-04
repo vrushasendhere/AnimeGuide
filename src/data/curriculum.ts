@@ -3,6 +3,7 @@ import { fundamentals } from './lessons/fundamentals';
 import { construction } from './lessons/construction';
 import { perspective } from './lessons/perspective';
 import { composition } from './lessons/composition';
+import { cinematography } from './lessons/cinematography';
 import { colour } from './lessons/colour';
 import { style } from './lessons/style';
 import { effects } from './lessons/effects';
@@ -24,6 +25,7 @@ export const TRACKS: Track[] = [
   construction,
   perspective,
   composition,
+  cinematography,
   colour,
   style,
   effects,
