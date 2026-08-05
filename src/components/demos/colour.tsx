@@ -38,7 +38,7 @@ export const ClDials = () => {
 
 /** The same image in colour and in grey — if the grey fails, the colour was never the problem. */
 export const ClValueFirst = () => (
-  <Frame caption="flip to grey: if it dies here, no colour choice will save it">
+  <Frame>
     <Hills y={104} fill="#7d6f96" opacity={0.6} />
     <Hills y={124} fill="#8a5f74" opacity={0.9} />
     <Ground y={136} fill="#3a2536" />
@@ -145,9 +145,6 @@ export const ClPaletteRoles = () => {
           </text>
         </g>
       ))}
-      <text x="160" y="130" fontSize="9.5" textAnchor="middle" fill={C.accent} fontFamily="Poppins, sans-serif" fontWeight="700">
-        one accent. That is what makes it an accent.
-      </text>
     </svg>
   );
 };
@@ -171,9 +168,6 @@ export const ClLightVsLocal = () => {
           </text>
         </g>
       ))}
-      <text x="160" y="138" fontSize="9.5" textAnchor="middle" fill={C.mid} fontFamily="Poppins, sans-serif" fontWeight="600">
-        same red object — the light decides what colour it actually reads as
-      </text>
     </svg>
   );
 };
@@ -249,16 +243,13 @@ export const ClTimeOfDay = () => {
           </text>
         </g>
       ))}
-      <text x="160" y="146" fontSize="9.5" textAnchor="middle" fill={C.accent} fontFamily="Poppins, sans-serif" fontWeight="700">
-        identical drawing — mood is entirely a palette decision
-      </text>
     </svg>
   );
 };
 
 /** Saturation is a focal tool, not a quality setting. */
 export const ClSaturationFocal = () => (
-  <Frame caption="mute everything, saturate one thing — the eye has no choice">
+  <Frame>
     <Hills y={106} fill="#6a6478" opacity={0.7} />
     <Hills y={126} fill="#514c5e" />
     <Ground y={138} fill="#37333f" />

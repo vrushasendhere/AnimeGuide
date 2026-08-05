@@ -32,9 +32,6 @@ export const PsEyeLevel = () => {
           </text>
         </g>
       ))}
-      <text x="160" y="150" fontSize="9.5" textAnchor="middle" fill={C.accent} fontFamily="Poppins, sans-serif" fontWeight="700">
-        the horizon line IS your eye level — move it and you move the viewer
-      </text>
     </svg>
   );
 };
@@ -79,8 +76,7 @@ export const PsCubes = strokeDemo({
     { d: 'M254 78 L286 88 L286 120 L254 112', stroke: C.ink, w: 2.2, delay: 2.4, dur: 0.5 },
     { line: [254, 78, 254, 112], stroke: C.ink, w: 2.2, delay: 2.7, dur: 0.25 },
 
-    { text: { x: 150, y: 146, t: 'every vertical stays vertical — only the horizontals converge', size: 9 }, fill: C.mid, delay: 2.9 },
-  ],
+      ],
 });
 
 /** Ellipse degree opens up the further it sits from eye level. */
@@ -95,8 +91,7 @@ export const PsEllipsePersp = strokeDemo({
     { ellipse: [130, 142, 46, 29], stroke: C.ink, w: 2.2, delay: 1.4, dur: 0.5 },
     { line: [84, 40, 84, 142], stroke: C.light, w: 1.4, dash: '4 4', delay: 1.7, dur: 0.4 },
     { line: [176, 40, 176, 142], stroke: C.light, w: 1.4, dash: '4 4', delay: 1.8, dur: 0.4 },
-    { text: { x: 130, y: 166, t: 'further from eye level = rounder', size: 9 }, fill: C.accent, delay: 2.1 },
-  ],
+      ],
 });
 
 /** A room is one vanishing point and five planes. */
@@ -112,8 +107,7 @@ export const PsInterior = strokeDemo({
     { line: [284, 146, 200, 108], stroke: C.light, w: 1.6, delay: 1.5, dur: 0.4 },
     { d: 'M40 146 L40 118 L74 104 L74 132 Z', stroke: C.ink, w: 2, delay: 1.8, dur: 0.5 },
     { d: 'M228 132 L228 104 L258 118 L258 146 Z', stroke: C.ink, w: 2, delay: 2.1, dur: 0.5 },
-    { text: { x: 150, y: 168, t: 'back wall + four corner lines = a room', size: 9 }, fill: C.mid, delay: 2.5 },
-  ],
+      ],
 });
 
 /** Figures scale off the horizon, not off each other. */
@@ -131,13 +125,12 @@ export const PsFigureScale = strokeDemo({
       { circle: [f.x, f.top - 5, 5] as [number, number, number], stroke: C.ink, w: 2.2, delay: 0.8 + i * 0.25, dur: 0.25 },
     ]),
     { line: [60, 56, 232, 56], stroke: C.accent, w: 1.6, delay: 1.6, dur: 0.4 },
-    { text: { x: 150, y: 150, t: 'same-height people: heads all land on the horizon', size: 9 }, fill: C.accent, delay: 2 },
-  ],
+      ],
 });
 
 /** Anime backgrounds are stacked flat layers, not one rendered scene. */
 export const PsBgLayers = () => (
-  <Frame caption="sky · far · mid · near · foreground — five flat plates">
+  <Frame>
     <rect x="0" y="0" width={FW} height={FH} fill="#8fc7e8" />
     <circle cx="252" cy="34" r="22" fill="#fff4d6" opacity="0.9" />
     <Hills y={90} fill="#a9b8d6" opacity={0.85} />
@@ -151,7 +144,7 @@ export const PsBgLayers = () => (
 
 /** Anime clouds are hard-edged stacked shapes with a flat lit top. */
 export const PsClouds = () => (
-  <Frame caption="hard rim, flat lit top, one shadow tone underneath" tone="none">
+  <Frame tone="none">
     <rect x="0" y="0" width={FW} height={FH} fill="#7cc0e6" />
     {[
       { x: 70, y: 70, s: 1 },
@@ -186,8 +179,5 @@ export const PsBgDetail = () => (
     <path d="M226 118 C244 110 262 114 274 120" stroke={C.light} strokeWidth="1.5" fill="none" />
     <path d="M40 60 L52 44 L64 60 Z" fill="none" stroke={C.light} strokeWidth="1.4" />
     <path d="M240 56 L252 40 L264 56 Z" fill="none" stroke={C.light} strokeWidth="1.4" />
-    <text x="150" y="152" fontSize="9.5" textAnchor="middle" fill={C.accent} fontFamily="Poppins, sans-serif" fontWeight="700">
-      sharp on the character, suggestion everywhere else
-    </text>
   </Paper>
 );

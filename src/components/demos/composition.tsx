@@ -18,7 +18,7 @@ const ThirdsGrid = ({ className = '' }: { className?: string }) => (
 );
 
 export const CpCentered = () => (
-  <Frame caption="dead centre — static and airless">
+  <Frame>
     <Hills y={120} fill="#4a3f63" opacity={0.75} />
     <Ground />
     <Fig x={160} y={132} s={1.15} />
@@ -28,7 +28,7 @@ export const CpCentered = () => (
 );
 
 export const CpThirds = () => (
-  <Frame caption="subject on an intersection — the frame breathes">
+  <Frame>
     <Hills y={120} fill="#4a3f63" opacity={0.75} />
     <Ground />
     <Fig x={(FW / 3) * 2} y={132} s={1.15} />
@@ -54,7 +54,7 @@ export const CpLeadingLines = () => (
 const EYE_PATH = 'M40 40 C120 30 210 62 274 46 C210 96 90 92 46 118 C130 128 220 122 286 138';
 
 export const CpEyePath = () => (
-  <Frame caption="the eye enters, travels, and should not fall out">
+  <Frame>
     <Hills y={124} fill="#4a3f63" opacity={0.5} />
     <Ground />
     <path d={EYE_PATH} fill="none" stroke="#ffd9a0" strokeWidth="1.6" strokeDasharray="5 5" opacity="0.7" />
@@ -86,7 +86,7 @@ export const CpNotan = () => (
 );
 
 export const CpThreeValues = () => (
-  <Frame caption="three values, clearly separated — light, mid, dark" tone="flat">
+  <Frame tone="flat">
     <rect x="0" y="0" width={FW} height={FH} fill="#d8d3c6" />
     <path d="M-10 96 C50 74 90 92 140 84 C190 76 240 98 290 88 L330 92 L330 178 L-10 178 Z" fill="#8a8496" />
     <path d="M-10 132 L330 124 L330 178 L-10 178 Z" fill="#241f2e" />
@@ -100,7 +100,7 @@ export const CpThreeValues = () => (
 /* --- Focal point --- */
 
 export const CpFocalFlat = () => (
-  <Frame caption="everything equally lit — nowhere to look" tone="flat">
+  <Frame tone="flat">
     <Ground />
     {[52, 108, 164, 220, 268].map((x) => (
       <Fig key={x} x={x} y={132} s={1} fill="#2b3049" />
@@ -109,7 +109,7 @@ export const CpFocalFlat = () => (
 );
 
 export const CpFocalContrast = () => (
-  <Frame caption="one value break decides where the eye lands">
+  <Frame>
     <Ground />
     {[52, 108, 220, 268].map((x) => (
       <Fig key={x} x={x} y={132} s={1} fill="#221d33" />
@@ -136,7 +136,7 @@ export const CpDepth = () => (
 );
 
 export const CpAtmospheric = () => (
-  <Frame caption="further away = lighter, bluer, lower contrast">
+  <Frame>
     {[
       { y: 92, fill: '#8f86a8', op: 0.45 },
       { y: 108, fill: '#6d6392', op: 0.65 },

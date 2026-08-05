@@ -1,4 +1,4 @@
-import { C, Paper, Tag, strokeDemo } from './kit';
+import { C, Paper, strokeDemo } from './kit';
 
 /* ------------------------------------------------------------------
    Track 2 — building a head and a figure out of simple solids.
@@ -79,7 +79,6 @@ export const CtHeadTurn = () => (
       />
     </g>
     <ellipse cx="110" cy="70" rx="44" ry="14" fill="none" stroke={C.cyan} strokeWidth="1.8" opacity="0.7" />
-    <Tag x={120} y={140} color={C.mid} size={9}>centre line follows the turn</Tag>
   </Paper>
 );
 
@@ -156,7 +155,6 @@ export const CtLineOfAction = strokeDemo({
   vb: '0 0 200 190',
   layers: [
     { d: 'M76 20 C112 66 88 122 116 176', stroke: C.accent, w: 4, delay: 0, dur: 0.7 },
-    { text: { x: 100, y: 188, t: 'one curve, whole body', size: 9 }, fill: C.accent, delay: 0.8 },
   ],
 });
 
@@ -211,7 +209,6 @@ export const CtHandMitt = strokeDemo({
   layers: [
     { d: 'M78 52 L152 46 L162 92 L86 102 Z', stroke: C.ink, w: 2.6, delay: 0, dur: 0.8 },
     { d: 'M78 60 C60 66 54 84 66 96 C74 104 86 100 88 94', stroke: C.ink, w: 2.6, delay: 0.7, dur: 0.6 },
-    { text: { x: 120, y: 132, t: 'palm block + thumb wedge', size: 9 }, fill: C.mid, delay: 1.4 },
   ],
 });
 

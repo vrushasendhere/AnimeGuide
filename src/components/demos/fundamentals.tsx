@@ -143,7 +143,6 @@ export const FxEllipseOrbit = () => (
       className="landellipse"
       pathLength={100}
     />
-    <Tag x={120} y={136} color={C.mid} size={9}>orbit 3× · then land</Tag>
   </Paper>
 );
 
@@ -183,7 +182,6 @@ export const FxCircle = strokeDemo({
     { line: [72, 80, 168, 80], stroke: C.light, w: 1.2, delay: 0.5, dur: 0.3 },
     { line: [120, 32, 120, 128], stroke: C.light, w: 1.2, delay: 0.6, dur: 0.3 },
     { circle: [120, 80, 48], stroke: C.ink, w: 3, delay: 0.9, dur: 0.8 },
-    { text: { x: 120, y: 150, t: 'box first · then the round', size: 9 }, fill: C.mid, delay: 1.6 },
   ],
 });
 
@@ -286,7 +284,6 @@ export const FxHatch = strokeDemo({
       delay: i * 0.07,
       dur: 0.22,
     })),
-    { text: { x: 120, y: 134, t: 'same angle · same gap', size: 9 }, fill: C.mid, delay: 1 },
   ],
 });
 

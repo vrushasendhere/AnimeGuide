@@ -1,4 +1,3 @@
-import { C } from './kit';
 import { FW, FH, Frame, Fig, Hills, Ground } from './frame';
 
 /* ------------------------------------------------------------------
@@ -18,7 +17,7 @@ const BaseShot = () => (
 );
 
 export const FxNeutral = () => (
-  <Frame caption="the base shot — no effect, no statement">
+  <Frame>
     <BaseShot />
   </Frame>
 );
@@ -189,7 +188,7 @@ export const FxDread = () => (
 /* --- Colour field --- */
 
 export const FxRageField = () => (
-  <Frame caption="red field: rage, danger, blood rushing">
+  <Frame>
     <BaseShot />
     <g className="fx-wash">
       <rect x="-10" y="-10" width="340" height="190" fill="#c2182b" />
@@ -199,7 +198,7 @@ export const FxRageField = () => (
 );
 
 export const FxDespairField = () => (
-  <Frame caption="blue field: despair, isolation, cold">
+  <Frame>
     <BaseShot />
     <g className="fx-wash">
       <rect x="-10" y="-10" width="340" height="190" fill="#1d3c78" />
@@ -237,16 +236,13 @@ export const FxScreentone = () => (
         </text>
       </g>
     ))}
-    <text x="160" y="136" fontSize="9.5" textAnchor="middle" fill={C.mid} fontFamily="Poppins, sans-serif" fontWeight="600">
-      tone density is a value — pick it the way you would pick a grey
-    </text>
   </svg>
 );
 
 /* --- Restraint --- */
 
 export const FxOverloaded = () => (
-  <Frame caption="four effects at once — none of them mean anything" tone="flat">
+  <Frame tone="flat">
     <rect x="0" y="0" width={FW} height={FH} fill="#eae6dc" />
     {Array.from({ length: 30 }, (_, i) => {
       const a = (i / 30) * Math.PI * 2;
@@ -276,7 +272,7 @@ export const FxOverloaded = () => (
 );
 
 export const FxRestrained = () => (
-  <Frame caption="one effect, on the one beat that needed it">
+  <Frame>
     <BaseShot />
     <g className="fx-rays">
       {[0, 1, 2, 3].map((i) => (

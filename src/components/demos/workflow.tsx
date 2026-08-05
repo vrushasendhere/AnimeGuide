@@ -50,7 +50,6 @@ export const WfLimited = () => (
       </g>
       <rect x="-34" y="104" width="68" height="60" rx="10" fill="#2f3648" />
     </g>
-    <Tag x={150} y={182} color={C.accent} size={10}>1 held body + 3 mouth drawings = a whole scene</Tag>
   </Stage>
 );
 
@@ -77,7 +76,6 @@ export const WfReuse = () => (
         </text>
       </g>
     ))}
-    <Tag x={140} y={174} color={C.mid} size={9}>build a library, not one-offs</Tag>
   </Paper>
 );
 
@@ -103,8 +101,6 @@ export const WfThumbnails = strokeDemo({
     { rect: [206, 26, 66, 52, 4], stroke: C.accent, w: 2.4, delay: 1, dur: 0.5 },
     { d: 'M216 62 Q239 34 262 58', stroke: C.accent, w: 2.4, delay: 1.4, dur: 0.4 },
     { text: { x: 239, y: 94, t: 'then commit', size: 9 }, fill: C.accent, delay: 1.8 },
-    { text: { x: 145, y: 130, t: 'pick the composition BEFORE you render it', size: 9.5 }, fill: C.ink, delay: 2 },
-    { text: { x: 145, y: 150, t: 'the cheapest fix is the one you make early', size: 8.5 }, fill: C.mid, delay: 2.2 },
   ],
 });
 
@@ -149,9 +145,6 @@ export const WfDetailBudget = () => (
     <path d="M132 78 Q140 84 148 78" stroke={C.ink} strokeWidth="2" fill="none" />
     <path d="M52 128 C74 112 96 118 112 126" stroke={C.light} strokeWidth="1.6" fill="none" />
     <path d="M170 126 C192 116 214 120 230 128" stroke={C.light} strokeWidth="1.6" fill="none" />
-    <text x="140" y="158" fontSize="9" textAnchor="middle" fill={C.accent} fontFamily="Poppins, sans-serif" fontWeight="700">
-      80% of the detail in 20% of the frame
-    </text>
   </Paper>
 );
 
@@ -225,7 +218,6 @@ export const WfVersions = strokeDemo({
     { text: { x: 109, y: 116, t: 'v2', size: 9 }, fill: C.mid, delay: 1 },
     { text: { x: 171, y: 116, t: 'v3', size: 9 }, fill: C.mid, delay: 1.1 },
     { text: { x: 233, y: 116, t: 'v4', size: 9 }, fill: C.accent, delay: 1.2 },
-    { text: { x: 140, y: 144, t: 'save a new file at every big decision', size: 9 }, fill: C.ink, delay: 1.5 },
   ],
 });
 
@@ -247,8 +239,6 @@ export const WfBatch = () => (
         />
       </g>
     ))}
-    <Tag x={150} y={112} color={C.accent} size={10}>flats on ALL frames, then shadows on all frames</Tag>
-    <Tag x={150} y={140} color="#96a0b8" size={9}>switching tools is the tax — pay it once</Tag>
   </Stage>
 );
 

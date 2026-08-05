@@ -133,9 +133,6 @@ export const AnTimingChart = () => (
     <Chart title="even" ts={evenTs} color={C.mid} x={54} />
     <Chart title="slow in" ts={slowInTs} color={C.cyan} x={150} />
     <Chart title="slow out" ts={slowOutTs} color={C.gold} x={246} />
-    <text x="150" y="163" fontSize="8.5" textAnchor="middle" fill={C.accent} fontFamily="Poppins, sans-serif" fontWeight="700">
-      bunched ticks = frames crowd there = it slows down
-    </text>
   </Paper>
 );
 
@@ -170,8 +167,6 @@ export const AnSmear = () => (
     <g className="smear-solid">
       <circle cx="244" cy="96" r="20" fill={C.accent} opacity="0" />
     </g>
-    <Tag x={160} y={150} color={C.accent} size={10}>1 stretched frame bridges a huge jump</Tag>
-    <Tag x={160} y={168} color="#96a0b8" size={9}>freeze any anime punch and you will find one</Tag>
   </Stage>
 );
 

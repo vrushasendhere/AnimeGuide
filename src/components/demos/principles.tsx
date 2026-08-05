@@ -1,4 +1,4 @@
-import { C, Stage, Tag } from './kit';
+import { C, Stage } from './kit';
 
 /* ------------------------------------------------------------------
    Track 4 — the twelve principles, as motion rather than prose.
@@ -23,7 +23,6 @@ export const PrSquashBad = () => (
     <g className="ball-rigid">
       <circle cx="40" cy="32" r="15" fill={C.red} opacity="0.9" />
     </g>
-    <Tag x={160} y={26} color={C.red} size={11}>rigid — reads as a sticker</Tag>
   </Stage>
 );
 
@@ -33,7 +32,6 @@ export const PrSquashGood = () => (
     <g className="ball-arc">
       <circle cx="40" cy="32" r="15" fill={C.accent} style={glow} />
     </g>
-    <Tag x={160} y={26} color={C.accent} size={11}>squash on impact — reads as rubber</Tag>
   </Stage>
 );
 
@@ -45,7 +43,6 @@ export const PrAnticBad = () => (
     <g className="no-anticip">
       <rect x="40" y="140" width="46" height="52" rx="8" fill={C.red} opacity="0.9" />
     </g>
-    <Tag x={160} y={40} color={C.red} size={11}>no wind-up — the move is invisible</Tag>
   </Stage>
 );
 
@@ -55,7 +52,6 @@ export const PrAnticGood = () => (
     <g className="anticip">
       <rect x="40" y="140" width="46" height="52" rx="8" fill={C.accent} style={glow} />
     </g>
-    <Tag x={160} y={40} color={C.accent} size={11}>pull back first — the eye gets warned</Tag>
   </Stage>
 );
 
@@ -81,7 +77,6 @@ export const PrStagingBad = () => (
     <g transform="translate(160 131)" color="#3b4356">
       <Figure armOut={false} />
     </g>
-    <Tag x={160} y={30} color={C.red} size={11}>arm crosses the body — pose is mush</Tag>
   </Stage>
 );
 
@@ -91,7 +86,6 @@ export const PrStagingGood = () => (
     <g transform="translate(140 131)" color="#3b4356">
       <Figure armOut />
     </g>
-    <Tag x={160} y={30} color={C.green} size={11}>arm clears the body — pose reads flat black</Tag>
   </Stage>
 );
 
@@ -110,8 +104,6 @@ export const PrStraightAhead = () => (
         style={{ animationDelay: `${i * 0.22}s` }}
       />
     ))}
-    <Tag x={160} y={34} color={C.gold} size={11}>straight ahead — frame 1, 2, 3, 4…</Tag>
-    <Tag x={160} y={186} color="#96a0b8" size={9}>alive and loose, harder to control</Tag>
   </Stage>
 );
 
@@ -131,8 +123,6 @@ export const PrPoseToPose = () => (
         style={{ animationDelay: `${0.6 + i * 0.05}s` }}
       />
     ))}
-    <Tag x={160} y={34} color={C.accent} size={11}>pose to pose — keys first, fill after</Tag>
-    <Tag x={160} y={186} color="#96a0b8" size={9}>controlled, and how anime is actually made</Tag>
   </Stage>
 );
 
@@ -146,7 +136,6 @@ export const PrFollowBad = () => (
       <circle cx="160" cy="82" r="17" fill={C.red} opacity="0.9" />
       <rect x="150" y="60" width="20" height="26" rx="9" fill={C.red} opacity="0.55" />
     </g>
-    <Tag x={160} y={32} color={C.red} size={11}>everything stops on the same frame</Tag>
   </Stage>
 );
 
@@ -160,7 +149,6 @@ export const PrFollowGood = () => (
         <path d="M152 66 C150 46 168 40 176 52 C182 62 172 70 168 66" fill={C.accent} opacity="0.65" />
       </g>
     </g>
-    <Tag x={160} y={32} color={C.accent} size={11}>hair keeps going, then settles</Tag>
   </Stage>
 );
 
@@ -191,7 +179,6 @@ export const PrEaseBad = () => (
     <g className="travel-linear">
       <circle cx="40" cy="130" r="12" fill={C.red} opacity="0.9" />
     </g>
-    <Tag x={160} y={44} color={C.red} size={11}>even spacing — mechanical</Tag>
   </Stage>
 );
 
@@ -201,7 +188,6 @@ export const PrEaseGood = () => (
     <g className="travel-ease">
       <circle cx="40" cy="130" r="12" fill={C.accent} style={glow} />
     </g>
-    <Tag x={160} y={44} color={C.accent} size={11}>bunched at the ends — alive</Tag>
   </Stage>
 );
 
@@ -216,7 +202,6 @@ export const PrArcsBad = () => (
       const y = t < 0.5 ? 150 - t * 180 : 60 + (t - 0.5) * 180;
       return <circle key={i} cx={x} cy={y} r="5" fill={C.red} opacity="0.7" />;
     })}
-    <Tag x={160} y={38} color={C.red} size={11}>straight segments — robotic</Tag>
   </Stage>
 );
 
@@ -229,7 +214,6 @@ export const PrArcsGood = () => (
       const y = (1 - t) * (1 - t) * 150 + 2 * (1 - t) * t * 20 + t * t * 150;
       return <circle key={i} cx={x} cy={y} r="5" fill={C.accent} opacity="0.85" />;
     })}
-    <Tag x={160} y={38} color={C.accent} size={11}>one smooth arc — organic</Tag>
   </Stage>
 );
 
@@ -245,8 +229,6 @@ export const PrSecondary = () => (
         <path d="M158 96 L150 154 L166 152 Z" fill={C.cyan} opacity="0.8" />
       </g>
     </g>
-    <Tag x={160} y={30} color={C.cyan} size={11}>walk = main · scarf = secondary</Tag>
-    <Tag x={160} y={190} color="#96a0b8" size={9}>it supports the action, never competes with it</Tag>
   </Stage>
 );
 
@@ -275,7 +257,6 @@ export const PrTimingFast = () => (
     <g className="step-fast">
       <circle cx="44" cy="90" r="13" fill={C.gold} />
     </g>
-    <Tag x={160} y={44} color={C.gold} size={11}>4 frames — snappy, weightless</Tag>
   </Stage>
 );
 
@@ -285,7 +266,6 @@ export const PrTimingSlow = () => (
     <g className="step-slow">
       <circle cx="44" cy="90" r="13" fill={C.cyan} />
     </g>
-    <Tag x={160} y={44} color={C.cyan} size={11}>12 frames — heavy, deliberate</Tag>
   </Stage>
 );
 
@@ -297,7 +277,6 @@ export const PrExaggBad = () => (
     <g className="exagg-weak">
       <rect x="134" y="106" width="52" height="88" rx="12" fill={C.red} opacity="0.85" />
     </g>
-    <Tag x={160} y={44} color={C.red} size={11}>timid — the audience misses it</Tag>
   </Stage>
 );
 
@@ -307,7 +286,6 @@ export const PrExaggGood = () => (
     <g className="exagg">
       <rect x="134" y="106" width="52" height="88" rx="12" fill={C.accent} style={glow} />
     </g>
-    <Tag x={160} y={44} color={C.accent} size={11}>pushed — the idea lands</Tag>
   </Stage>
 );
 
@@ -316,7 +294,6 @@ export const PrExaggGood = () => (
 export const PrSolidFlat = () => (
   <Stage vb={VB}>
     <circle cx="160" cy="106" r="52" fill="none" stroke={C.red} strokeWidth="2.5" />
-    <Tag x={160} y={186} color={C.red} size={11}>a flat shape — no volume</Tag>
   </Stage>
 );
 
@@ -343,7 +320,6 @@ export const PrSolidForm = () => (
       />
     </g>
     <ellipse cx="160" cy="106" rx="52" ry="16" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.6" />
-    <Tag x={160} y={186} color={C.accent} size={11}>cross-contours — it exists in space</Tag>
   </Stage>
 );
 
@@ -357,7 +333,6 @@ export const PrAppealBland = () => (
         <rect x={x - 20} y="120" width="40" height="56" rx="8" fill="#3b4356" />
       </g>
     ))}
-    <Tag x={160} y={40} color={C.red} size={11}>same shapes — nobody stands out</Tag>
   </Stage>
 );
 
@@ -375,6 +350,5 @@ export const PrAppealVaried = () => (
       <path d="M250 66 L272 108 L228 108 Z" fill={C.gold} />
       <path d="M234 112 L266 112 L276 178 L224 178 Z" fill={C.gold} opacity="0.8" />
     </g>
-    <Tag x={160} y={40} color={C.green} size={11}>round · square · angular — instant cast</Tag>
   </Stage>
 );

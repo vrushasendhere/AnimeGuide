@@ -133,7 +133,6 @@ export const StRim = () => <HeadPaper shadow second hairHi rim />;
 export const StCelBuild = () => (
   <Paper vb="0 0 240 190">
     <Head shadow second hairHi rim animate />
-    <Tag x={120} y={184} color={C.mid} size={9}>flat → shadow → light → rim</Tag>
   </Paper>
 );
 
@@ -155,9 +154,6 @@ export const StHueShift = () => (
     <rect x="146" y="72" width="90" height="44" rx="6" fill={SKIN_SH} />
     <text x="191" y="132" fontSize="9" textAnchor="middle" fill={C.green} fontFamily="Poppins, sans-serif" fontWeight="700">
       darker + warmer hue
-    </text>
-    <text x="130" y="152" fontSize="8.5" textAnchor="middle" fill={C.mid} fontFamily="Poppins, sans-serif" fontWeight="600">
-      rotate the hue as you darken
     </text>
   </Paper>
 );

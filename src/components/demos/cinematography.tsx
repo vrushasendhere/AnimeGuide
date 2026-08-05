@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import { C } from './kit';
 import { FW, FH, Frame } from './frame';
 
 /* ------------------------------------------------------------------
@@ -58,16 +57,14 @@ const SceneBg = () => (
 function Shot({
   zoom,
   focusY = HEAD_Y,
-  caption,
   badge,
 }: {
   zoom: number;
   focusY?: number;
-  caption: string;
   badge: string;
 }) {
   return (
-    <Frame caption={caption} tone="none">
+    <Frame tone="none">
       <g transform={`translate(${HEAD_X} ${focusY}) scale(${zoom}) translate(${-HEAD_X} ${-focusY})`}>
         <SceneBg />
         <Actor />
@@ -83,30 +80,30 @@ function Shot({
 /* --- The seven shot sizes --- */
 
 export const CmExtremeWide = () => (
-  <Shot zoom={0.5} focusY={130} badge="EWS" caption="extreme wide — where are we, and how small is he in it" />
+  <Shot zoom={0.5} focusY={130} badge="EWS" />
 );
 export const CmWide = () => (
-  <Shot zoom={1} focusY={126} badge="WS" caption="wide — the figure and the space together" />
+  <Shot zoom={1} focusY={126} badge="WS" />
 );
 export const CmFull = () => (
-  <Shot zoom={1.55} focusY={130} badge="FS" caption="full — head to toe. Body language, action, fights" />
+  <Shot zoom={1.55} focusY={130} badge="FS" />
 );
 export const CmMedium = () => (
-  <Shot zoom={2.7} focusY={122} badge="MS" caption="medium — waist up. The dialogue workhorse" />
+  <Shot zoom={2.7} focusY={122} badge="MS" />
 );
 export const CmMediumClose = () => (
-  <Shot zoom={4.2} focusY={113} badge="MCU" caption="medium close — chest up. Sincerity, quiet conversation" />
+  <Shot zoom={4.2} focusY={113} badge="MCU" />
 );
 export const CmCloseUp = () => (
-  <Shot zoom={7} focusY={HEAD_Y} badge="CU" caption="close-up — the face fills the frame. Emotion" />
+  <Shot zoom={7} focusY={HEAD_Y} badge="CU" />
 );
 export const CmExtremeClose = () => (
-  <Shot zoom={15} focusY={103.5} badge="ECU" caption="extreme close — eyes only. Maximum intensity, no context" />
+  <Shot zoom={15} focusY={103.5} badge="ECU" />
 );
 
 /** The whole ladder, stepping automatically. */
 export const CmLadder = () => (
-  <Frame caption="the ladder: EWS → WS → FS → MS → MCU → CU → ECU" tone="none">
+  <Frame tone="none">
     <g className="shotladder">
       <SceneBg />
       <Actor />
@@ -118,17 +115,15 @@ export const CmLadder = () => (
 
 function HeightShot({
   camY,
-  caption,
   badge,
   skew,
 }: {
   camY: number;
-  caption: string;
   badge: string;
   skew: number;
 }) {
   return (
-    <Frame caption={caption} tone="none">
+    <Frame tone="none">
       <g transform={`translate(${HEAD_X} ${HEAD_Y}) scale(3.4) translate(${-HEAD_X} ${-HEAD_Y}) translate(0 ${camY})`}>
         <SceneBg />
         {/* Vertical squash fakes the foreshortening of looking up or down. */}
@@ -145,18 +140,18 @@ function HeightShot({
 }
 
 export const CmLowAngle = () => (
-  <HeightShot camY={-14} skew={1.18} badge="LOW" caption="low angle — looking up. Power, threat, heroism" />
+  <HeightShot camY={-14} skew={1.18} badge="LOW" />
 );
 export const CmEyeLevel = () => (
-  <HeightShot camY={0} skew={1} badge="EYE" caption="eye level — neutral. The viewer is an equal" />
+  <HeightShot camY={0} skew={1} badge="EYE" />
 );
 export const CmHighAngle = () => (
-  <HeightShot camY={13} skew={0.84} badge="HIGH" caption="high angle — looking down. Small, vulnerable, losing" />
+  <HeightShot camY={13} skew={0.84} badge="HIGH" />
 );
 
 /** Bird's eye / drone: straight down, the map view. */
 export const CmBirdsEye = () => (
-  <Frame caption="bird's eye / drone — straight down. Fate, isolation, scale" tone="none">
+  <Frame tone="none">
     <rect x="0" y="0" width={FW} height={FH} fill="#4a6b52" />
     <path d="M0 40 L320 24 L320 56 L0 74 Z" fill="#6b6357" />
     <path d="M0 112 L320 96 L320 128 L0 146 Z" fill="#6b6357" />
@@ -173,7 +168,7 @@ export const CmBirdsEye = () => (
 );
 
 export const CmDutch = () => (
-  <Frame caption="dutch tilt — the horizon lies. Unease, before you know why" tone="none">
+  <Frame tone="none">
     <g transform="rotate(-12 160 84)">
       <g transform={`translate(${HEAD_X} ${HEAD_Y}) scale(3) translate(${-HEAD_X} ${-HEAD_Y})`}>
         <SceneBg />
@@ -187,17 +182,15 @@ export const CmDutch = () => (
 
 function MoveShot({
   className,
-  caption,
   badge,
   parallax,
 }: {
   className: string;
-  caption: string;
   badge: string;
   parallax?: boolean;
 }) {
   return (
-    <Frame caption={caption} tone="none">
+    <Frame tone="none">
       {parallax ? (
         <>
           <g className="cam-dolly-bg">
@@ -224,24 +217,24 @@ function MoveShot({
 }
 
 export const CmPan = () => (
-  <MoveShot className="cam-pan" badge="PAN" caption="pan — pivot left/right. Follow, reveal, connect two things" />
+  <MoveShot className="cam-pan" badge="PAN" />
 );
 export const CmTilt = () => (
-  <MoveShot className="cam-tilt" badge="TILT" caption="tilt — pivot up/down. Reveal height, or a slow character reveal" />
+  <MoveShot className="cam-tilt" badge="TILT" />
 );
 export const CmDolly = () => (
-  <MoveShot className="cam-dolly" badge="DOLLY IN" parallax caption="dolly in — the camera travels. Background shifts too. Growing realisation" />
+  <MoveShot className="cam-dolly" badge="DOLLY IN" parallax />
 );
 export const CmCrane = () => (
-  <MoveShot className="cam-crane" badge="CRANE" caption="crane out — rise and pull back. Endings, abandonment, scale" />
+  <MoveShot className="cam-crane" badge="CRANE" />
 );
 export const CmHandheld = () => (
-  <MoveShot className="cam-handheld" badge="HANDHELD" caption="handheld — never still. Panic, documentary immediacy" />
+  <MoveShot className="cam-handheld" badge="HANDHELD" />
 );
 
 /** Anime TU: a hard snap-in used as punctuation, not as a travel move. */
 export const CmTrackUp = () => (
-  <Frame caption="anime TU (track up) — a hard, fast push. A dramatic beat, not a journey" tone="none">
+  <Frame tone="none">
     <g className="cam-tu">
       <g transform={`translate(${HEAD_X} ${HEAD_Y}) scale(2.2) translate(${-HEAD_X} ${-HEAD_Y})`}>
         <SceneBg />
@@ -253,8 +246,8 @@ export const CmTrackUp = () => (
 
 /* --- Framing --- */
 
-const FrameGuide = ({ children, ok, label }: { children: ReactNode; ok: boolean; label: string }) => (
-  <Frame caption={label} tone="none" captionColor={ok ? '#56d98a' : '#ff6b6b'}>
+const FrameGuide = ({ children, ok }: { children: ReactNode; ok: boolean }) => (
+  <Frame tone="none">
     {children}
     <rect
       x="1.5"
@@ -279,19 +272,19 @@ const HeadShot = ({ dx, dy }: { dx: number; dy: number }) => (
 );
 
 export const CmHeadroomBad = () => (
-  <FrameGuide ok={false} label="too much headroom — the subject sinks out of the frame">
+  <FrameGuide ok={false}>
     <HeadShot dx={0} dy={44} />
   </FrameGuide>
 );
 
 export const CmHeadroomGood = () => (
-  <FrameGuide ok label="eyes on the upper third — where they belong">
+  <FrameGuide ok>
     <HeadShot dx={0} dy={-6} />
   </FrameGuide>
 );
 
 export const CmLeadRoomBad = () => (
-  <FrameGuide ok={false} label="no lead room — the character is crushed against the edge they face">
+  <FrameGuide ok={false}>
     <g transform="translate(96 -6)">
       <g transform={`translate(${HEAD_X} ${HEAD_Y}) scale(4.6) translate(${-HEAD_X} ${-HEAD_Y})`}>
         <SceneBg />
@@ -302,7 +295,7 @@ export const CmLeadRoomBad = () => (
 );
 
 export const CmLeadRoomGood = () => (
-  <FrameGuide ok label="lead room — space in the direction they look or move">
+  <FrameGuide ok>
     <g transform="translate(-72 -6)">
       <g transform={`translate(${HEAD_X} ${HEAD_Y}) scale(4.6) translate(${-HEAD_X} ${-HEAD_Y})`}>
         <SceneBg />
@@ -314,7 +307,7 @@ export const CmLeadRoomGood = () => (
 
 /** Over the shoulder: the standard dialogue shot. */
 export const CmOverShoulder = () => (
-  <Frame caption="over-the-shoulder — puts you inside the conversation" tone="none">
+  <Frame tone="none">
     <g transform={`translate(${HEAD_X} ${HEAD_Y}) scale(3.6) translate(${-HEAD_X} ${-HEAD_Y}) translate(14 0)`}>
       <SceneBg />
       <Actor />
@@ -326,7 +319,7 @@ export const CmOverShoulder = () => (
 );
 
 export const CmTwoShot = () => (
-  <Frame caption="two-shot — the relationship IS the subject" tone="none">
+  <Frame tone="none">
     <g transform={`translate(${HEAD_X} ${HEAD_Y}) scale(2.1) translate(${-HEAD_X} ${-HEAD_Y})`}>
       <SceneBg />
       <Actor x={HEAD_X - 22} />
@@ -368,10 +361,6 @@ function AxisDiagram({ crossed }: { crossed: boolean }) {
             </text>
           </g>
         ))}
-
-      <text x="160" y="178" fontSize="10" textAnchor="middle" fill={tone} fontFamily="Poppins, sans-serif" fontWeight="700">
-        {crossed ? 'camera 4 crossed the line — A and B swap sides on the cut' : 'all cameras one side — screen direction holds'}
-      </text>
     </svg>
   );
 }
@@ -404,12 +393,6 @@ export const CmEyeline = () => (
         …so we cut to what is there
       </text>
     </g>
-    <text x="160" y="140" fontSize="10" textAnchor="middle" fill="#ffd9a0" fontFamily="Poppins, sans-serif" fontWeight="700">
-      the eyeline promises the next shot — break it and the space falls apart
-    </text>
-    <text x="160" y="160" fontSize="9" textAnchor="middle" fill="#96a0b8" fontFamily="Poppins, sans-serif" fontWeight="600">
-      if she looks right, the object must be on the right of the cut
-    </text>
   </svg>
 );
 
@@ -449,19 +432,13 @@ export const CmSceneFlow = () => {
           )}
         </g>
       ))}
-      <text x="160" y="112" fontSize="9.5" textAnchor="middle" fill={C.accent} fontFamily="Poppins, sans-serif" fontWeight="700">
-        the default scene: go from context to feeling, tightening as you go
-      </text>
-      <text x="160" y="130" fontSize="8.5" textAnchor="middle" fill="#96a0b8" fontFamily="Poppins, sans-serif" fontWeight="600">
-        then break the pattern deliberately when the scene needs a jolt
-      </text>
     </svg>
   );
 };
 
 /** The pillow shot: anime's held, empty cutaway. */
 export const CmPillowShot = () => (
-  <Frame caption="pillow shot — no character, no plot. A held breath between scenes" tone="none">
+  <Frame tone="none">
     <rect x="0" y="0" width={FW} height={FH} fill="#c9dcea" />
     <rect x="0" y="0" width={FW} height={96} fill="#9dc4de" />
     <circle cx="248" cy="34" r="16" fill="#fff6e2" opacity="0.9" />

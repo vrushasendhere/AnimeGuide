@@ -144,14 +144,14 @@ export function Chibi(props: ChibiProps) {
   );
 }
 
-const ChibiBox = (p: ChibiProps & { caption?: string }) => (
-  <Paper vb="0 0 240 200">
+/**
+ * Bare figure, no baked caption: these render inside compare tiles and step
+ * cards, which supply their own label. Repeating it inside the SVG printed
+ * the same sentence twice.
+ */
+const ChibiBox = (p: ChibiProps) => (
+  <Paper vb="0 0 240 192">
     <Chibi {...p} />
-    {p.caption && (
-      <text x="120" y="197" fontSize="9.5" textAnchor="middle" fill={C.mid} fontFamily="Poppins, sans-serif" fontWeight="700">
-        {p.caption}
-      </text>
-    )}
   </Paper>
 );
 
@@ -269,18 +269,14 @@ export const CdShapeLanguage = () => {
           </g>
         );
       })}
-      <text x="150" y="174" fontSize="9" textAnchor="middle" fill={C.accent} fontFamily="Poppins, sans-serif" fontWeight="700">
-        the audience reads the shape before they read the face
-      </text>
     </svg>
   );
 };
 
 /** Simplification: cut detail, keep identity. */
 export const CdSimplify = strokeDemo({
-  vb: '0 0 300 175',
+  vb: '0 0 300 140',
   layers: [
-    { text: { x: 150, y: 16, t: 'remove detail until identity breaks — then step back one', size: 9 }, fill: C.mid, delay: 0 },
     // busy version
     { circle: [56, 66, 30], stroke: C.ink, w: 2.2, delay: 0.2, dur: 0.4 },
     ...Array.from({ length: 9 }, (_, i) => ({
@@ -304,7 +300,6 @@ export const CdSimplify = strokeDemo({
     { circle: [236, 68, 2.4], stroke: 'none', fill: C.ink, mode: 'pop', delay: 2.2 },
     { circle: [252, 68, 2.4], stroke: 'none', fill: C.ink, mode: 'pop', delay: 2.25 },
     { text: { x: 244, y: 116, t: 'too far — anyone', size: 9 }, fill: C.red, delay: 2.4 },
-    { text: { x: 150, y: 150, t: 'the middle one still reads as a specific character', size: 9 }, fill: C.ink, delay: 2.7 },
   ],
 });
 
@@ -361,24 +356,19 @@ export const CdExpressions = () => {
           </g>
         );
       })}
-      <text x="150" y="140" fontSize="9" textAnchor="middle" fill={C.accent} fontFamily="Poppins, sans-serif" fontWeight="700">
-        same head — only eye shape and mouth curve changed
-      </text>
     </svg>
   );
 };
 
 /* --- Depth half --- */
 
-export const CdFlat = () => <ChibiBox caption="flat colour — a sticker" />;
-export const CdForm = () => <ChibiBox form caption="soft form shadow — now it is a ball" />;
-export const CdCel = () => <ChibiBox cel caption="hard cel edge — the anime answer to the same problem" />;
-export const CdOcclusion = () => <ChibiBox form occlusion caption="+ occlusion — the hair now sits ON the head" />;
-export const CdBounce = () => <ChibiBox form occlusion bounce caption="+ bounce light — the shadow stops being a hole" />;
-export const CdHighlight = () => <ChibiBox form occlusion bounce highlight caption="+ specular — surface becomes readable" />;
-export const CdFull = () => (
-  <ChibiBox form occlusion bounce highlight rim sss caption="+ rim and subsurface — it now occupies space" />
-);
+export const CdFlat = () => <ChibiBox />;
+export const CdForm = () => <ChibiBox form />;
+export const CdCel = () => <ChibiBox cel />;
+export const CdOcclusion = () => <ChibiBox form occlusion />;
+export const CdBounce = () => <ChibiBox form occlusion bounce />;
+export const CdHighlight = () => <ChibiBox form occlusion bounce highlight />;
+export const CdFull = () => <ChibiBox form occlusion bounce highlight rim sss />;
 
 /** Character against a background: flat vs fully separated. */
 function SceneChibi({ separated }: { separated: boolean }) {
@@ -403,22 +393,9 @@ function SceneChibi({ separated }: { separated: boolean }) {
         ))}
         <path d="M0 148 C60 138 120 152 190 144 C240 138 280 148 300 144 L300 190 L0 190 Z" fill={separated ? '#4a6580' : '#5f7285'} />
       </g>
-      <g transform="translate(150 96) scale(0.62) translate(-120 -100)">
+      <g transform="translate(150 100) scale(0.66) translate(-120 -100)">
         <Chibi form occlusion bounce highlight rim={separated} sss={separated} />
       </g>
-      <text
-        x="150"
-        y="184"
-        fontSize="9.5"
-        textAnchor="middle"
-        fill={separated ? '#bdf0cf' : '#ffc4c4'}
-        fontFamily="Poppins, sans-serif"
-        fontWeight="700"
-      >
-        {separated
-          ? 'rim light + darker, blurrier BG — the character pops forward'
-          : 'same values as the background — the character sinks into it'}
-      </text>
     </svg>
   );
 }
