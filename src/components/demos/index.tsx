@@ -10,6 +10,7 @@ import * as Fx from './effects';
 import * as Cl from './colour';
 import * as Ps from './perspective';
 import * as Cm from './cinematography';
+import * as Cd from './cute';
 
 /**
  * Lookup used by every block that renders a figure. Lesson data refers to
@@ -129,6 +130,23 @@ export const DEMOS: Record<string, ComponentType> = {
   'cp-negative': Cp.CpNegativeSpace,
   'cp-balance': Cp.CpBalance,
   'cp-bigshape': Cp.CpBigShape,
+
+  /* --- Cute characters and depth --- */
+  'cd-babyschema': Cd.CdBabySchema,
+  'cd-proportions': Cd.CdProportions,
+  'cd-shapes': Cd.CdShapeLanguage,
+  'cd-simplify': Cd.CdSimplify,
+  'cd-expressions': Cd.CdExpressions,
+  'cd-flat': Cd.CdFlat,
+  'cd-form': Cd.CdForm,
+  'cd-cel': Cd.CdCel,
+  'cd-occlusion': Cd.CdOcclusion,
+  'cd-bounce': Cd.CdBounce,
+  'cd-highlight': Cd.CdHighlight,
+  'cd-full': Cd.CdFull,
+  'cd-sep-flat': Cd.CdSeparationFlat,
+  'cd-sep-depth': Cd.CdSeparationDepth,
+  'cd-polish': Cd.CdPolish,
 
   /* --- Cinematography --- */
   'cm-ladder': Cm.CmLadder,

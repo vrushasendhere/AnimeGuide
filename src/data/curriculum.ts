@@ -6,6 +6,7 @@ import { composition } from './lessons/composition';
 import { cinematography } from './lessons/cinematography';
 import { colour } from './lessons/colour';
 import { style } from './lessons/style';
+import { cute } from './lessons/cute';
 import { effects } from './lessons/effects';
 import { principles } from './lessons/principles';
 import { advanced } from './lessons/advanced';
@@ -28,6 +29,7 @@ export const TRACKS: Track[] = [
   cinematography,
   colour,
   style,
+  cute,
   effects,
   principles,
   advanced,
