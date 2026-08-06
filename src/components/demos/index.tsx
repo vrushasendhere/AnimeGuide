@@ -11,6 +11,7 @@ import * as Cl from './colour';
 import * as Ps from './perspective';
 import * as Cm from './cinematography';
 import * as Cd from './cute';
+import * as Chd from './chardesign';
 
 /**
  * Lookup used by every block that renders a figure. Lesson data refers to
@@ -130,6 +131,23 @@ export const DEMOS: Record<string, ComponentType> = {
   'cp-negative': Cp.CpNegativeSpace,
   'cp-balance': Cp.CpBalance,
   'cp-bigshape': Cp.CpBigShape,
+
+  /* --- Character design --- */
+  'chd-brief': Chd.ChdBrief,
+  'chd-thumbs': Chd.ChdThumbs,
+  'chd-sil-good': Chd.ChdSilhouetteGood,
+  'chd-sil-weak': Chd.ChdSilhouetteWeak,
+  'chd-cast': Chd.ChdCast,
+  'chd-cast-sil': Chd.ChdCastSilhouette,
+  'chd-costumes': Chd.ChdCostumes,
+  'chd-pal-busy': Chd.ChdPaletteBusy,
+  'chd-pal-tight': Chd.ChdPaletteTight,
+  'chd-pal-ratio': Chd.ChdPaletteRatio,
+  'chd-signature': Chd.ChdSignature,
+  'chd-turnaround': Chd.ChdTurnaround,
+  'chd-expressions': Chd.ChdExpressionSheet,
+  'chd-consistency': Chd.ChdConsistency,
+  'chd-funnel': Chd.ChdFunnel,
 
   /* --- Cute characters and depth --- */
   'cd-babyschema': Cd.CdBabySchema,

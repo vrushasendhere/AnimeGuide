@@ -19,9 +19,9 @@ npm run dev
 Opens at http://localhost:5180. Progress and drill scores are saved to
 `localStorage`, so closing the tab loses nothing.
 
-## The thirteen tracks
+## The fourteen tracks
 
-108 lessons, ordered as a path: hand control, then what to draw, then the space
+117 lessons, ordered as a path: hand control, then what to draw, then the space
 it sits in, then how to frame, arrange, colour and finish it, then motion.
 
 | Track | What it covers |
@@ -34,6 +34,7 @@ it sits in, then how to frame, arrange, colour and finish it, then motion.
 | **Colour & Light** | The three dials, value first, the five zones of light, harmony, building a palette, light vs local colour, colour as storytelling |
 | **Style & Cel Shading** | The four cel passes, shadow colour and hue shift, key lighting, line weight, style dials |
 | **Cute Characters & Depth** | The baby schema, chibi proportions, shape language, simplification, cute expressions — then the rendering passes (form, occlusion, bounce, specular, rim, subsurface) that turn a flat drawing into a solid one |
+| **Character Design** | Working from a brief, silhouette-first exploration, designing a cast, costume and props, the character palette, the signature detail, model sheets and turnarounds, staying on-model, iteration |
 | **Emotion & Effects** | White-outs, light rays, speed and focus lines, impact frames, sparkles, dread, colour fields — and when not to use any of them |
 | **12 Animation Principles** | All twelve, each with a with/without pair you watch side by side |
 | **Advanced Animation** | Keys, breakdowns, inbetweens, timing charts, spacing, onion skin, ones/twos/threes, walk cycles, smears, sakuga |
@@ -46,7 +47,8 @@ application of colour theory, not a substitute for it.
 Every shot-size demo in Cinematography is the *same* scene at a different scale,
 so the comparison is purely about camera distance rather than seven separately
 drawn pictures. The rendering demos in Cute Characters & Depth work the same
-way: one chibi, re-rendered with each pass switched on in turn.
+way: one chibi, re-rendered with each pass switched on in turn, and Character
+Design re-dresses and re-colours a single figure.
 
 The Clip Studio track carries no drawn figures on purpose — a hand-authored SVG
 of someone else's UI would be a guess. Exact values live in reference tables and
@@ -113,5 +115,5 @@ two-column lookup table for exact settings and shortcuts.
   nothing has licensing questions, and it all works offline.
 - Videos need internet. They load on click (a poster stands in until then) so a
   lesson with several videos doesn't boot several players at once.
-- All 113 embedded video IDs were checked against live YouTube thumbnails.
+- All 123 embedded video IDs were checked against live YouTube thumbnails.
 - Respects `prefers-reduced-motion`.
